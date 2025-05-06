@@ -10,11 +10,11 @@ include $(TOPDIR)/rules.mk
 PKG_ARCH_ISTOREENHANCE:=$(ARCH)
 
 PKG_NAME:=istoreenhance
-PKG_VERSION:=0.1.7
+PKG_VERSION:=0.3.0
 PKG_RELEASE:=$(PKG_ARCH_ISTOREENHANCE)-1
 PKG_SOURCE:=iStoreEnhance-binary-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://fw.koolcenter.com/binary/iStoreEnhance/
-PKG_HASH:=6c670eced471c9be7a3b59b52701bc6154cd4d3144e354d492f2ba4cf3caa6f5
+PKG_SOURCE_URL:=http://dl.istoreos.com/binary/iStoreEnhance/
+PKG_HASH:=e01af9d6b7c49340f21614cd45f44cf8f15960c13060659edb2a11647d191b43
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/iStoreEnhance-binary-$(PKG_VERSION)
 
@@ -43,6 +43,7 @@ define Package/$(PKG_NAME)/postinst
 #!/bin/sh
 if [ -z "$${IPKG_INSTROOT}" ]; then
 	[ -f /etc/uci-defaults/istoreenhance ] && /etc/uci-defaults/istoreenhance && rm -f /etc/uci-defaults/istoreenhance
+	exit 0
 fi
 endef
 
